@@ -21,10 +21,10 @@ app.get("/", (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-
 mongoose
   .connect(process.env.MONGODB_URL)
-  .then(() => {
-    app.listen(port, () => console.log(`Server running on port ${port}`));
+  .then((connect) => {  
+   
+    app.listen(port, () => {console.log(`MongoDb connected`);console.log(`Server running on  http://localhost:${port}`);});
   })
   .catch((error) => console.log(`${error} did not connect`));
